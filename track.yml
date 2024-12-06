@@ -1,20 +1,23 @@
-slug: untitled-track-moj0o3
+slug: saas
 id: wyvrn7lavb3q
 revision: 1
-title: Untitled Track
-description: ""
+title: jenkins-server
+description: '![ddfa952835a375a2be4d65164460342a.png](https://play.instruqt.com/assets/tracks/wyvrn7lavb3q/93c62cb4ebac69fb43e5ff8f39fd7808/assets/ddfa952835a375a2be4d65164460342a.png)'
 icon: ""
 tags: []
 owner: instruqt-support
 developers:
 - akash@instruqt.com
 instructors: []
-idle_timeout: 300
-timelimit: 1200
+idle_timeout: 18000
+timelimit: 18000
 lab_config:
   extend_ttl: 0
   sidebar_enabled: true
   hideStopButton: false
   feedback_recap_enabled: true
   feedback_tab_enabled: false
+  theme:
+    name: original
+  override_challenge_layout: false
   loadingMessages: true

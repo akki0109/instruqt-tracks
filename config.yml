@@ -1,1 +1,14 @@
 version: "3"
+virtualmachines:
+- name: jdk
+  image: ubuntu-os-cloud/ubuntu-2404-noble-amd64-v20241004
+  environment:
+    secret: cat var/lib/jenkins/secrets/initialAdminPassword
+  machine_type: n1-standard-1
+  memory: 4096
+  cpus: 1
+- name: docker
+  image: ubuntu-os-cloud/ubuntu-2404-noble-amd64-v20241004
+  machine_type: n1-standard-1
+  memory: 4096
+  cpus: 1

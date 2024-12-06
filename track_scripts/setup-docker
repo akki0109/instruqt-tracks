@@ -1,0 +1,37 @@
+#!/bin/bash
+
+# Update package list
+sudo apt-get update
+
+# Install Docker
+sudo apt-get install docker.io -y
+
+# Add current user to the Docker group
+sudo usermod -aG docker $USER
+
+# Apply new group membership without needing to log out and back in
+newgrp docker
+
+# Set permissions for Docker socket
+sudo chmod 777 /var/run/docker.sock
+
+echo "Docker installation and setup complete."
+
+
+# Pull the official Jenkins Docker image
+echo "Pulling the Jenkins Docker image..."
+docker pull jenkins/jenkins:lts
+
+# Run the Jenkins container
+echo "Running the Jenkins container..."
+docker run -d --name jenkins \
+  -p 8080:8080 \
+  -p 50000:50000 \
+  --restart unless-stopped \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  jenkins/jenkins:lts
+
+agent variable set secret "$(docker exec jenkins cat /var/jenkins_home/secrets/initialAdminPassword)"
+
+
+
